@@ -1,0 +1,12 @@
+# コンテキスト
+# 実行時の情報や、ジョブの実行結果などを保持するオブジェクト
+name: Contexts
+on: push
+jobs:
+  print:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "${{github.actor}}" # githubコンテキストの参照
+      - run: echo "${{github.run_id}}" # ワークフロ＝の実行ID
+      - run: echo "${{runner.name}}" # ランナーの名前
+      - run: echo "${{runner.os}}" # os

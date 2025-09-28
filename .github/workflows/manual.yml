@@ -1,6 +1,6 @@
 name: Munual
 on:
-  workflow_dispatch:
+  workflow_dispatch: # 手動実行イベント
     inputs:
       greeting:
         type: string
