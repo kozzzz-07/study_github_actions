@@ -11,9 +11,8 @@ jobs:
       - run: echo "BRANCH=${BRANCH}" # シェルコマンドからジョブレベルの環境変数を参照
       - run: echo "EXAMPLE=${EXAMPLE}" # シェルコマンドからワークフローレベルの環境変数を参照
       - uses: actions/checkout@v4
-        env:
-          EXAMPLE: step
         with:
           ref: ${{env.BRANCH}} # envコンテキスト経由でジョブレベルの環境変数を参照
-          run: echo "EXAMPLE=${EXAMPLE}" # ステップレベルでオーバーライドされた環境変数を参照
-
+      - run: echo "EXAMPLE=${EXAMPLE}" # ステップレベルでオーバーライドされた環境変数を参照
+        env:
+          EXAMPLE: step
