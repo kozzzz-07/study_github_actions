@@ -1,0 +1,19 @@
+name: Enviroment varianlles
+on: push
+env:
+  EXAMPLE: example # ワークフローレベルで環境変数を定義
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    env:
+      BRANCH: master # ジョブレベルで環境変数を定義
+    steps:
+      - run: echo "BRANCH=${BRANCH}" # シェルコマンドからジョブレベルの環境変数を参照
+      - run: echo "EXAMPLE=${EXAMPLE}" # シェルコマンドからワークフローレベルの環境変数を参照
+      - uses: actions/checkout@v4
+        env:
+          EXAMPLE: step
+        with:
+          ref: ${{env.BRANCH}} # envコンテキスト経由でジョブレベルの環境変数を参照
+          run: echo "EXAMPLE=${EXAMPLE}" # ステップレベルでオーバーライドされた環境変数を参照
+
