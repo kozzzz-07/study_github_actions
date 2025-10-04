@@ -1,0 +1,13 @@
+# 中間環境変数
+# コンテキストに特殊文字などが含まれていて意図しない挙動になることを回避するテクニック
+# 1.コンテキストはシェルコマンドにハードコードしない
+# 2.環境変数は全てダブルクォーテーションで囲む
+name: Secure Context Access
+on: push
+jobs:
+  print:
+    runs-on: ubuntu-latest
+    env:
+      ACTOR: "${{github.actor}}" # コンテキストの値を環境変数にセット
+    steps:
+      - run: echo "${ACTOR}" # 環境変数経由でコンテキストのプロパティを参照
