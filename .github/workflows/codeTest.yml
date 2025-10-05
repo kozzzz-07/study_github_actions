@@ -5,10 +5,15 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./nodejs
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v5
         with:
-          node-versions: "24"
+          node-version: "24"
           cache: npm
+          cache-dependency-path: nodejs/package-lock.json
+      - run: npm install
       - run: npm run test
