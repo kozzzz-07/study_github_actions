@@ -9,7 +9,7 @@ describe("Hello()", () => {
   });
 
   it("入力した名前に挨拶をする:名無し", async () => {
-    const result = hello("");
+    const result = hello();
     assert.strictEqual(result, "hello, 名無し");
   });
 });
