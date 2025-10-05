@@ -10,4 +10,4 @@ jobs:
     steps:
       - run: echo "VARIABLE=${VARIABLE}"
       - run: echo "SECRET=${SECRET}" # ログ出力ははマスクされる
-      - run: echo "SECRET=${SECRET:0:1}${SECRET#?}" # ログ出力ははマスクされない
+      - run: echo "SECRET=${SECRET:0:1} ${SECRET#?}" # ログ出力ははマスクされない
