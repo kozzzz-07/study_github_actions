@@ -1,0 +1,13 @@
+# GitHubで登録した環境変数の参照
+name: Variable and Secret
+on: push
+jobs:
+  print:
+    runs-on: ubuntu-latest
+    env:
+      VARIABLE: ${{ vars.VARIABLE }}
+      SECRET: ${{ secrets.SECRET }}
+    steps:
+      - run: echo "VARIABLE=${VARIABLE}"
+      - run: echo "SECRET=${SECRET}" # ログ出力ははマスクされる
+      - run: echo "SECRET=${SECRET:0:1} ${SECRET#?}" # ログ出力ははマスクされない
