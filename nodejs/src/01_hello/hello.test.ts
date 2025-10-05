@@ -7,4 +7,9 @@ describe("Hello()", () => {
     const result = hello("田中");
     assert.strictEqual(result, "hello, 田中");
   });
+
+  it("入力した名前に挨拶をする:名無し", async () => {
+    const result = hello("");
+    assert.strictEqual(result, "hello, 名無し");
+  });
 });
