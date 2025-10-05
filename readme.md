@@ -1,0 +1,3 @@
+- 実行例
+  - tsx src/01_hello/hello.test.ts
+  - npm run test -- --import ./src/01_hello/hello.test.ts
