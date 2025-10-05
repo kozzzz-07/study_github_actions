@@ -1,0 +1,14 @@
+name: Code Test
+on:
+  pull_request:
+    paths: ["nodejs/**/*.ts"]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@4v
+      - uses: actions/setup-node@v4
+        with:
+          node-versions: "24"
+          cache: npm
+      - run: npm run test
